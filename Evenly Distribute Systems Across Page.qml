@@ -68,7 +68,7 @@ MuseScore {
 				if (element.type == Element.LAYOUT_BREAK && element.layoutBreakType == LayoutBreak.PAGE) {
 					removeElement(element)
 					cursor.add(systemBreak.clone())
-					console.log("Replaced existing page break")
+					console.log("Replaced existing page break between measures " + mno + "-" + (mno+1))
 				}
 			}
 			
@@ -192,7 +192,7 @@ MuseScore {
 				}
 			}//while remainingSystems
 			
-			//if desired, move systems from the end of the score to the front
+			//if desired, move systems from the end of the score to the front until they all reach minSPP
 			//this will mean only the last page will have fewer systems than minSPP
 			if (! lastPageSmoothing) {
 				for (var i = 0; i < minNPages-1; i++) {
@@ -204,12 +204,14 @@ MuseScore {
 			}//lastPageSmoothing
 			
 		}//Regular Spacing
+		
 		console.log("Calculated Systems per Page: " + pageModel.toString())
-		for (var i in pageModel) {
-			if (i > 0) {
-				pageModel[i] += pageModel[i-1]
-			}
+		
+		//turn pageModel into a readable format (absolute instead of relative system values)
+		for (var i = 1; i < pageModel.length; i++) {
+			pageModel[i] += pageModel[i-1]
 		}
+		
 		return pageModel
 	}//calculateDistribution
 	
@@ -338,7 +340,7 @@ MuseScore {
 				id: applyAutoSpacing
 				visible: (mscoreMajorVersion >= 4 || (mscoreMajorVersion == 3 && mscoreMinorVersion >= 6))
 				checked: visible
-				text: qsTr("Apply automatic spacing")
+				text: qsTranslate("Ms::MuseScore", "Enable vertical justification of staves")
 			}//CheckBox
 			
 		}//ColumnLayout
