@@ -24,4 +24,4 @@ For more help installing this plugin, visit [this page](https://musescore.org/en
 ## Usage
 Run the plugins from the 'Plugins' tab / 'System Spacing'. The plugins apply to the whole score, not a selection.
 
-MuseScore 4 detects and runs these plugins, however there are no resulting visual changes. Expect to see MuseScore 4 support at a future time.
+MuseScore 4 detects and runs these plugins, but only 'Lock System Distribution' results in visible changes. Expect to see MuseScore 4 support at a future time.
