@@ -5,7 +5,6 @@ MuseScore {
 	menuPath: "Plugins." + qsTr("System Spacing") + "." + qsTr("Lock System Distribution")
 	description: qsTr("Fixes in place the measures per system and systems per page") + "\n" +
 		qsTr("Requires MuseScore 3.3 or later") + "\n" +
-		qsTr("Currently non-functional in MuseScore 4")
 	version: "1.0"
 	requiresScore: true
 	//To Do: Respect Frames?
