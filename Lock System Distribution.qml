@@ -47,26 +47,22 @@ MuseScore {
 		do {
 			mno += 1
 			//Hierarchy: NoteRest/Segment/Measure/System/Page/Undefined
-			curSystem = cursor.measure.parent.posY //system's position
-			curPage = cursor.measure.parent.parent.pagenumber //page number
+			curSystem = cursor.measure.parent
+			curPage = curSystem.parent
 			
-			if (curSystem !== prevSystem) {
-				if (measureIsEmpty(cursor.measure)) {
-					systems.push(mno)
-				}
-				console.log("found system change: measure " + mno)
-			}
-			
-			if (curPage !== prevPage) {
-				if (measureIsEmpty(cursor.measure)) {
+			if (! curSystem.is(prevSystem)) {
+				systems.push(mno)
+				if (! curPage.is(prevPage)) {
 					pages.push(mno)
+					console.log("Detected page change: Measure " + mno + ", system " + systems.length + ", page " + pages.length)
+				} else {
+					console.log("Detected system change: Measure " + mno + ", system " + systems.length)
 				}
-				console.log("found page change: measure " + mno)
 			}
-			console.log("measure " + mno + ", system " + systems.length + ", page " + pages.length)
+			//console.log("measure " + mno + ", system " + systems.length + ", page " + pages.length)
 			
-			prevSystem = cursor.segment.parent.parent.posY
-			prevPage = cursor.segment.parent.parent.parent.pagenumber
+			prevSystem = cursor.measure.parent
+			prevPage = prevSystem.parent
 			
 		} while (cursor.nextMeasure())
 		
