@@ -4,8 +4,8 @@ import MuseScore 3.0
 MuseScore {
 	menuPath: "Plugins." + qsTr("System Spacing") + "." + qsTr("Lock System Distribution")
 	description: qsTr("Fixes in place the measures per system and systems per page") + "\n" +
-		qsTr("Requires MuseScore 3.3 or later") + "\n" +
-	version: "1.0"
+		qsTr("Requires MuseScore 3.3 or later")
+	version: "1.1"
 	requiresScore: true
 	//To Do: Respect Frames?
 	
@@ -81,22 +81,19 @@ MuseScore {
 	
 	function addSuitableBreaks(layoutType, breakType, message) {
 		for (var i in layoutType) {
-			if (layoutType[i] == (mno+1) && mno != 1) {
+			if (layoutType[i] == (mno+1) && mno != 1 && measureIsEmpty()) {
 				console.log("adding " + message + " break to measure " + mno)
 				cursor.add(breakType.clone())
 			}
 		}
 	}//addSuitableBreaks
 	
-	function measureIsEmpty(measure) {
-		if (mno == 1) {
-			return true
-		}
+	function measureIsEmpty() {
 		var check = true
-		for (var i in measure.prevMeasure.elements) {
-			if (measure.prevMeasure.elements[i].type == Element.LAYOUT_BREAK) {
-				check = false
+		for (var i in cursor.measure.elements) {
+			if (cursor.measure.elements[i].type == Element.LAYOUT_BREAK) {
 				console.log("Detected existing Layout Break between measures " + (mno-1) + "-" + mno)
+				check = false
 			}
 		}
 		return check
