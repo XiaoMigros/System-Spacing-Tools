@@ -8,8 +8,7 @@ import Qt.labs.settings 1.0
 MuseScore {
 	menuPath: "Plugins." + qsTr("System Spacing") + "." + qsTr("Evenly Distribute Systems Across Pages")
 	description: qsTr("Evenly spreads systems across pages") + "\n" +
-		qsTr("Requires MuseScore 3.3 or later") + "\n" +
-		qsTr("Currently non-functional in MuseScore 4")
+		qsTr("Requires MuseScore 3.3 or later")
 	version: "1.0"
 	requiresScore: true
 	
@@ -348,7 +347,7 @@ MuseScore {
 		onAccepted: {
 			settings.wideSpacing = wideButton.checked
 			settings.lastPageSmoothing = ! compactButton.checked
-			settings.applyAutoStyle = ((mscoreMajorVersion >= 4 || (mscoreMajorVersion == 3 && mscoreMinorVersion >= 6)) ? applyAutoSpacing.checked : false)
+			settings.applyAutoStyle = ((mscoreMajorVersion >= 4 || (mscoreMajorVersion == 3 && mscoreMinorVersion >= 6)) && applyAutoSpacing.checked)
 			optionsDialog.close()
 		}
 	}//optionsDialog
