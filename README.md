@@ -1,5 +1,6 @@
 # System Spacing Tools
-A set of MuseScore plugins for easier control of system spacing and distribution.
+A set of MuseScore plugins for easier control of system spacing and distribution.<br/>
+Compatible with MuseScore 3 & 4.
 
 ### [Download](https://github.com/XiaoMigros/system-spacing-tools/archive/main.zip)
 
@@ -23,5 +24,3 @@ For more help installing this plugin, visit [this page](https://musescore.org/en
 
 ## Usage
 Run the plugins from the 'Plugins' tab / 'System Spacing'. The plugins apply to the whole score, not a selection.
-
-MuseScore 4 detects and runs these plugins, but only 'Lock System Distribution' results in visible changes. Expect to see MuseScore 4 support at a future time.
