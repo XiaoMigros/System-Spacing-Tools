@@ -27,4 +27,4 @@ Download [all the files](https://github.com/XiaoMigros/system-spacing-tools/arch
 For more help installing this plugin, visit [this page](https://musescore.org/en/handbook/3/plugins#installation).
 
 ## Usage
-Run the plugins from the 'Plugins' tab / 'System Spacing'. The plugins apply to the whole score, not a selection.
+Run the plugins from the 'Plugins' tab (in the 'System Spacing' subfolder in MU3). Except for split measures, the plugins apply to the whole score, not a selection.
