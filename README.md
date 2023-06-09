@@ -16,6 +16,10 @@ Compatible with MuseScore 3 & 4.
 - This plugin freezes the current measures per system and systems per page
 - It respects existing layout breaks
 
+### Split Measure Across System
+- Easily create a measure that spans over more than one system with the help of this plugin
+- The plugin accounts for correct measure numbering, barline visibility, and the system of the measure itself
+
 ## Installation
 
 Download [all the files](https://github.com/XiaoMigros/system-spacing-tools/archive/main.zip), unzip them and move them to MuseScore's plugins folder.
